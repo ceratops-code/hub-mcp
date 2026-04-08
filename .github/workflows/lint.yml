@@ -1,18 +1,17 @@
-name: Lint
+name: CI
 
 permissions:
   contents: read
 
 on:
-  # Replace pull_request with pull_request_target if you
-  # plan to use this action with forks, see the Limitations section
   pull_request:
+  push:
     branches:
-      - "**"
+      - main
 
 jobs:
-  run-linters:
-    name: Run linters
+  verify:
+    name: Verify
     runs-on: ubuntu-latest
 
     steps:
@@ -23,12 +22,22 @@ jobs:
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 #v4.4.0
         with:
           node-version: 22
+          cache: npm
 
       - name: Install Node.js dependencies
         run: npm ci
 
-      - name: Run linters
+      - name: Build
+        run: npm run build
+
+      - name: Run lint
         run: npm run lint
-      
-      - name: Run Formatting
+
+      - name: Run formatting checks
         run: npm run format:check
+
+      - name: Run tests
+        run: npm test
+
+      - name: Check generated tools list
+        run: npm run list-tools:check

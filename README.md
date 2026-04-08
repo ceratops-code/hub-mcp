@@ -5,6 +5,18 @@ The Docker Hub MCP Server is a [Model Context Protocol (MCP)](https://modelconte
 
 Developers building with containers, especially in AI and LLM-powered workflows, often face inadequate context across the vast landscape of Docker Hub images. As a result, LLMs struggle to recommend the right images, and developers lose time manually searching instead of building.
 
+## Fork Notes
+
+This fork keeps the upstream Docker Hub MCP server behavior and adds one compatibility fix that matters for MCP clients:
+
+- Read-only tools now publish `readOnlyHint: true`, so clients can classify non-mutating Docker Hub operations correctly.
+
+The repository is also prepared for a normal public-fork workflow:
+
+- CI runs build, lint, formatting, generated tool checks, and a regression test for tool metadata.
+- Docker image publishing is handled by GitHub Actions instead of Docker-internal release automation.
+- A sample Docker MCP catalog override is included at `docs/docker-mcp-catalog-override.example.yaml`.
+
 <p align="center">
   <img src="hubmcp.gif" 
        alt="Demo"
@@ -31,6 +43,7 @@ Developers building with containers, especially in AI and LLM-powered workflows,
     ```bash
     npm install
     npm run build
+    npm test
     ```
 
 2. **Run**
@@ -192,6 +205,25 @@ Replace the following values:
 
 2. Open the `Command Palette` and type `MCP: List Servers`.
 3. Select `docker-hub` and select `Start Server`.
+
+## Publishing a forked image
+
+This repository includes a portable GitHub Actions publish workflow for Docker Hub.
+
+Required repository configuration:
+
+- Repository variable: `DOCKERHUB_REPOSITORY`
+  Example: `your-namespace/dockerhub-mcp`
+- Repository secret: `DOCKERHUB_USERNAME`
+- Repository secret: `DOCKERHUB_TOKEN`
+
+Release flow:
+
+1. Push changes to `main` and let CI pass.
+2. Create a semver tag such as `v1.0.0`.
+3. Push the tag. The publish workflow will build a multi-arch image and push versioned and `latest` tags to Docker Hub.
+
+To override Docker's built-in `dockerhub` MCP server entry with your own image, import a catalog like the example in `docs/docker-mcp-catalog-override.example.yaml`.
 
 ## Task Examples
 
