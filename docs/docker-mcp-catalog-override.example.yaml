@@ -1,24 +1,24 @@
 name: dockerhub-custom-image
 displayName: Docker Hub MCP Override
 registry:
-  dockerhub:
-    title: Docker Hub
-    description: Override the built-in Docker Hub MCP server with a custom image.
-    type: server
-    image: your-namespace/dockerhub-mcp:latest
-    source: https://github.com/your-org/dockerhub-mcp
-    upstream: https://github.com/docker/hub-mcp
-    command:
-      - --transport=stdio
-      - --username={{dockerhub.username}}
-    secrets:
-      - name: dockerhub.pat_token
-        env: HUB_PAT_TOKEN
-        example: your_hub_pat_token
-    config:
-      - name: dockerhub
-        description: Configure connection to Docker Hub
-        type: object
-        properties:
-          username:
-            type: string
+    dockerhub:
+        title: Docker Hub
+        description: Override the built-in Docker Hub MCP server with a custom image.
+        type: server
+        image: your-namespace/dockerhub-mcp:latest
+        source: https://github.com/your-org/dockerhub-mcp
+        upstream: https://github.com/docker/hub-mcp
+        command:
+            - --transport=stdio
+            - --username={{dockerhub.username}}
+        secrets:
+            - name: dockerhub.pat_token
+              env: HUB_PAT_TOKEN
+              example: your_hub_pat_token
+        config:
+            - name: dockerhub
+              description: Configure connection to Docker Hub
+              type: object
+              properties:
+                  username:
+                      type: string
