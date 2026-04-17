@@ -30,7 +30,7 @@
         "claude"
     ],
     "dependencies": {
-        "@apidevtools/swagger-parser": "^10.1.0",
+        "@apidevtools/swagger-parser": "^12.1.0",
         "@genql/cli": "^6.3.3",
         "@modelcontextprotocol/sdk": "1.29.0",
         "@modelcontextprotocol/specification": "github:modelcontextprotocol/specification",
