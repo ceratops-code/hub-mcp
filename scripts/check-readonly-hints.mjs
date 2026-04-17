@@ -50,7 +50,7 @@ function getToolBlock(source, toolName) {
         throw new Error(`Could not locate registerTool block for ${toolName}.`);
     }
 
-    const nextTool = source.indexOf("this.tools.set(", start + marker.length);
+    const nextTool = source.indexOf('this.tools.set(', start + marker.length);
     return source.slice(start, nextTool === -1 ? undefined : nextTool);
 }
 
