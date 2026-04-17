@@ -41,3 +41,12 @@ jobs:
 
       - name: Check generated tools list
         run: npm run list-tools:check
+
+      - name: Run MCP smoke test
+        run: npm run smoke:mcp
+
+      - name: Build Docker image
+        run: npm run docker:build
+
+      - name: Run Docker MCP smoke test
+        run: npm run smoke:docker
