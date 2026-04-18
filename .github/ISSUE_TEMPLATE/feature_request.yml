@@ -1,0 +1,30 @@
+name: Feature request
+description: Suggest a Docker Hub MCP server improvement.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What workflow should this improve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the API, tool, metadata, documentation, or behavior change you want.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: textarea
+    id: client-impact
+    attributes:
+      label: MCP client impact
+      description: Note any expected impact on tool names, input schemas, annotations, authentication, or transports.
+

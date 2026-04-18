@@ -1,0 +1,66 @@
+name: Bug report
+description: Report a reproducible problem with the Docker Hub MCP server.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use GitHub private vulnerability reporting instead of this form for suspected security issues:
+        https://github.com/ceratops-code/hub-mcp/security/advisories/new
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What went wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      description: Provide the smallest sequence of commands or MCP client actions that reproduces the issue.
+      placeholder: |
+        1. Configure ...
+        2. Run ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or image tag
+      placeholder: v1.0.0-readhint.5
+  - type: dropdown
+    id: transport
+    attributes:
+      label: MCP transport
+      options:
+        - stdio
+        - http
+        - Docker MCP catalog
+        - Other
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include OS, Docker Desktop version, Node.js version, MCP client, and relevant configuration.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or error output
+      render: shell
+

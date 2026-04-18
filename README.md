@@ -33,7 +33,7 @@ The repository is also prepared for a normal public-fork workflow:
 ## Prerequisites
 
 - [Docker](https://docs.docker.com/get-docker/) installed
-- [Node.js](https://nodejs.org/) (version 22+)
+- [Node.js](https://nodejs.org/) (version 24+)
 - [Optional] A [Docker Personal Access Token (PAT)](https://docs.docker.com/security/for-developers/access-tokens/) with appropriate permissions
 
 ## Setup
@@ -386,5 +386,5 @@ $ docker ai "Can you help me update my Dockerfile to use a docker hardened image
 ## Licensing
 
 [docker/hub-mcp](https://github.com/docker/hub-mcp) is licensed under the Apache License, Version 2.0. See
-[LICENSE](https://github.com/docker/docker/blob/master/LICENSE) for the full
+[LICENSE](./LICENSE) for the full
 license text.

@@ -1,0 +1,9 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security vulnerability report
+    url: https://github.com/ceratops-code/hub-mcp/security/advisories/new
+    about: Report suspected vulnerabilities privately.
+  - name: Upstream Docker Hub MCP
+    url: https://github.com/docker/hub-mcp
+    about: Review the upstream project for Docker-owned changes and broader upstream discussion.
+
