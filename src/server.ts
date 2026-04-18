@@ -89,13 +89,13 @@ export class HubMCPServer {
     }
 
     async run(port: number, transportType: string): Promise<void> {
-        let transport = null;
         switch (transportType) {
-            case STDIO_OPTION:
-                transport = new StdioServerTransport();
+            case STDIO_OPTION: {
+                const transport = new StdioServerTransport();
                 await this.server.connect(transport);
                 logger.info('mcp server listening over stdio');
                 break;
+            }
             case STREAMABLE_HTTP_OPTION: {
                 const app = express();
                 app.use(express.json());
