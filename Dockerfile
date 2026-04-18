@@ -13,23 +13,20 @@
 #   limitations under the License.
 
 
-FROM node:24-alpine AS builder
+FROM node:24-alpine@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f AS builder
 WORKDIR /app
 
 COPY package.json .
 COPY package-lock.json .
 COPY tsconfig.json .
 
-# Refresh the lock file to be sure we include Linux-only packages that might not
-# be in the existing package-lock.json.
-RUN npm install --package-lock-only \
-    && npm ci
+RUN npm ci
 
 COPY src/ ./src/
 
 RUN npm run build
 
-FROM node:24-alpine
+FROM node:24-alpine@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f
 # Create app directory
 WORKDIR /app
 
