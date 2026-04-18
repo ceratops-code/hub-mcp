@@ -8,7 +8,7 @@ Please do not open a public issue for a suspected vulnerability.
 
 Preferred channel:
 
-- GitHub repository `Security` tab and private vulnerability reporting
+- GitHub repository `Security` tab and private vulnerability reporting: https://github.com/ceratops-code/hub-mcp/security/advisories/new
 
 If private vulnerability reporting is not enabled for the fork yet, contact the fork maintainers through a private channel before disclosing details publicly.
 
