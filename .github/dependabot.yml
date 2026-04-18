@@ -11,6 +11,9 @@ updates:
       - dependency-name: "zod"
         update-types:
           - "version-update:semver-major"
+      - dependency-name: "zod"
+        versions:
+          - "3.25.76"
 
   - package-ecosystem: "docker"
     directory: "/"
